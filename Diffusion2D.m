@@ -44,6 +44,18 @@ tic
 [Phi,GS_Iter]=GaussSiedel(A,b,Guess,Error,x,y);
 GaussSiedel_Time=toc;
 
+%Plots Data
+tic
+[X,Y]=meshgrid(x,y);
+Z=zeros(length(y),length(x));
+j=length(y);
+for i=1:length(y)
+    Z(j,1:length(x))=Phi((i-1)*length(x)+1:i*length(x));
+    j=j-1;
+end
+surf(X,Y,Z)
+Plot_Time=toc;
+
 %Organize All Execution Times
 ExecutionTime.SetUp=SetUp_Time;
 ExecutionTime.InputCheck=InputCheck_Time;
@@ -52,5 +64,6 @@ ExecutionTime.PopulateAbsb=PopulateAbsb_Time;
 ExecutionTime.AComponents=AComponents_Time;
 ExecutionTime.PopulateA=PopulateA_Time;
 ExecutionTime.GaussSiedel=GaussSiedel_Time;
-ExecutionTime.Total=SetUp_Time+InputCheck_Time+InputEcho_Time+PopulateAbsb_Time+AComponents_Time+PopulateA_Time+GaussSiedel_Time;
+ExecutionTime.Plot=Plot_Time;
+ExecutionTime.Total=SetUp_Time+InputCheck_Time+InputEcho_Time+PopulateAbsb_Time+AComponents_Time+PopulateA_Time+GaussSiedel_Time+Plot_Time;
 end
