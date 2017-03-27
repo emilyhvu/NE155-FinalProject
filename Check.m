@@ -1,4 +1,4 @@
-function [InputData,Dimension_Error,Dimension_Success,Sign_Error,Sign_Success] = Check(x,y,D_Matrix,A_Matrix,S_Matrix)
+function [Dimension_Error,Dimension_Success,Sign_Error,Sign_Success] = Check(x,y,D_Matrix,A_Matrix,S_Matrix)
 
 Dimension_Error=[];
 Dimension_Success=[];
