@@ -20,7 +20,7 @@ Ensure that the files Diffusion2D.m, Check.m, InputEcho.m, PopulateAbsb.m, AComp
     This array provides the source of each cell defined by the x and y vectors.
     The dimensions of this array must be (length(y)-1) by (length(x)-1) and all entries must be non-negative.
   -error value (Error): 
-    This value is the minimum relative error allowed when solving the 2D diffusion equation.
+    This value is the minimum absolute error allowed when solving the 2D diffusion equation.
     The dimensions of this array must be (length(y)-1) by (length(x)-1) and all entries must be non-negative.
 
 Problem solved by code, expected input, resulting output, and any limitations or restrictions.
