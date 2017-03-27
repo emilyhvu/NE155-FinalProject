@@ -12,13 +12,13 @@ Ensure that the files Diffusion2D.m, PopulateAbsb.m, AComponents.m, PopulateA.m,
     The dimensions of this array must be (length(y)-1) by (length(x)-1)
   -absorption cross section area matrix (A_Matrix):
     This array provides the material's absorption cross section area of each cell defined by the x and y vectors.
-    The dimensions of this array must be (length(y)-1) by (length(x)-1)
+    The dimensions of this array must be (length(y)-1) by (length(x)-1), and all entries must be non-negative.
   -source matrix (S_Matrix):
     This array provides the source of each cell defined by the x and y vectors.
-    The dimensions of this array must be (length(y)-1) by (length(x)-1)
+    The dimensions of this array must be (length(y)-1) by (length(x)-1) and all entries must be non-negative.
   -error value (Error): 
     This value is the minimum relative error allowed when solving the 2D diffusion equation.
-    The dimensions of this array must be (length(y)-1) by (length(x)-1)
+    The dimensions of this array must be (length(y)-1) by (length(x)-1) and all entries must be non-negative.
 
 Status of Code: 
 Operational but does not account for vacuum boundary conditions on left and bottom sides or corners yet.
