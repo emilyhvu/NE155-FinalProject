@@ -2,7 +2,7 @@
 2d Diffusion Equation Solver
 
 How to execute the code: 
-Ensure that the files Diffusion2D.m, PopulateAbsb.m, AComponents.m, PopulateA.m, and GaussSiedel.m are all in the same directory, and provide x vector, y vector, diffusion matrix, absorption cross section matrix, source matrix, and allowed error value.
+Ensure that the files Diffusion2D.m, Check.m, InputEcho.m, PopulateAbsb.m, AComponents.m, PopulateA.m, and GaussSiedel.m are all in the same directory, and provide x vector, y vector, diffusion matrix, absorption cross section matrix, source matrix, and allowed error value.
   -x vector (x): 
     This array gives the positions of material edges in the x direction of a mesh. 
   -y vector (y): 
