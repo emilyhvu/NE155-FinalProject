@@ -6,10 +6,10 @@ Abs_Terms=b; %To Populate with Absorption Terms
 for j=(length(y)-1):-1:2
     for i=2:length(x)-1
         %Deltas and Epsilons
-        d1=x(i)-x(i-1);
-        e1=y(j)-y(j+1);
-        d2=x(i+1)-x(i);
-        e2=y(j-1)-y(j);
+        d1=abs(x(i)-x(i-1));
+        e1=abs(y(j)-y(j+1));
+        d2=abs(x(i+1)-x(i));
+        e2=abs(y(j-1)-y(j));
         %Volume Around Inner Points
         V1=1/4*d1*e1;
         V2=1/4*d2*e1;
@@ -26,10 +26,10 @@ end
 for j=(length(y)-1):-1:2 %RIGHT
     i=length(x);
     %Deltas and Epsilons
-    d1=x(i)-x(i-1);
-    e1=y(j)-y(j+1);
-    %d2=x(i+1)-x(i);
-    e2=y(j-1)-y(j);
+    d1=abs(x(i)-x(i-1));
+    e1=abs(y(j)-y(j+1));
+    %d2=abs(x(i+1)-x(i));
+    e2=abs(y(j-1)-y(j));
     
     %Volume On Left Side
     V1=1/4*d1*e1;
@@ -46,10 +46,10 @@ end
 for i=2:length(x)-1 %TOP
     j=1;
     %Deltas and Epsilons
-    d1=x(i)-x(i-1);
-    e1=y(j)-y(j+1);
-    d2=x(i+1)-x(i);
-    %e2=y(j-1)-y(j);
+    d1=abs(x(i)-x(i-1));
+    e1=abs(y(j)-y(j+1));
+    d2=abs(x(i+1)-x(i));
+    %e2=abs(y(j-1)-y(j));
             
     %Volume On Bottom Side
     V1=1/4*d1*e1;
@@ -68,10 +68,10 @@ end
 for j=(length(y)-1):-1:2 %LEFT
     i=1;
     %Deltas and Epsilons
-    %d1=x(i)-x(i-1);
-    e1=y(j)-y(j+1);
-    d2=x(i+1)-x(i);
-    e2=y(j-1)-y(j);
+    %d1=abs(x(i)-x(i-1));
+    e1=abs(y(j)-y(j+1));
+    d2=abs(x(i+1)-x(i));
+    e2=abs(y(j-1)-y(j));
             
     %Volume on Right Side
     %V1=1/4*d1*e1;
@@ -87,10 +87,10 @@ end
 for i=2:length(x)-1 %BOTTOM
     j=length(y);
     %Deltas and Epsilons
-    d1=x(i)-x(i-1);
-    %e1=y(j)-y(j+1);
-    d2=x(i+1)-x(i);
-    e2=y(j-1)-y(j);
+    d1=abs(x(i)-x(i-1));
+    %e1=abs(y(j)-y(j+1));
+    d2=abs(x(i+1)-x(i));
+    e2=abs(y(j-1)-y(j));
     
     %Volume on Top Side
     %V1=1/4*d1*e1;
@@ -108,10 +108,10 @@ end
 i=1; %BOTTOM LEFT
 j=length(y);
     %Deltas and Epsilons
-    %d1=x(i)-x(i-1);
-    %e1=y(j)-y(j+1);
-    d2=x(i+1)-x(i);
-    e2=y(j-1)-y(j);
+        %d1=abs(x(i)-x(i-1));
+        %e1=abs(y(j)-y(j+1));
+        d2=abs(x(i+1)-x(i));
+        e2=abs(y(j-1)-y(j));
 
         %Top Right Volume
         %V1=1/4*d1*e1;
@@ -127,10 +127,10 @@ j=length(y);
 i=length(x); %BOTTOM RIGHT
 j=length(y);
 %Deltas and Epsilons
-    d1=x(i)-x(i-1);
-    %e1=y(j)-y(j+1);
-    %d2=x(i+1)-x(i);
-    e2=y(j-1)-y(j);
+        d1=abs(x(i)-x(i-1));
+        %e1=abs(y(j)-y(j+1));
+        %d2=abs(x(i+1)-x(i));
+        e2=abs(y(j-1)-y(j));
     
         %Top Left Volume
         %V1=1/4*d1*e1;
@@ -145,11 +145,10 @@ j=length(y);
 
 i=1; %TOP LEFT
 j=1; 
-    %Deltas and Epsilons
-    %d1=x(i)-x(i-1);
-    e1=y(j)-y(j+1);
-    d2=x(i+1)-x(i);
-    %e2=y(j-1)-y(j);
+        %d1=abs(x(i)-x(i-1));
+        e1=abs(y(j)-y(j+1));
+        d2=abs(x(i+1)-x(i));
+        %e2=abs(y(j-1)-y(j));
     
         %Bottom Right Volume
         %V1=1/4*d1*e1;
@@ -165,10 +164,10 @@ j=1;
 i=length(x); %TOP RIGHT
 j=1;
     %Deltas and Epsilons
-    d1=x(i)-x(i-1);
-    e1=y(j)-y(j+1);
-    %d2=x(i+1)-x(i);
-    %e2=y(j-1)-y(j);
+        d1=abs(x(i)-x(i-1));
+        e1=abs(y(j)-y(j+1));
+        %d2=abs(x(i+1)-x(i));
+        %e2=abs(y(j-1)-y(j));
     
         %Bottom Left Volume
         V1=1/4*d1*e1;
