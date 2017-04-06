@@ -180,4 +180,10 @@ j=1;
         Source_Term=S_Matrix(j,i-1)*V1;
         b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
 
+% % for i=1:length(b)
+% %     if isnan(b(i))
+% %         b(i)=0;
+% %     end
+% % end
+
 end

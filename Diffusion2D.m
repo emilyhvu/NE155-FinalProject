@@ -46,13 +46,12 @@ AComponents_Time=toc;
 
 %Populates A with Flux Influences in Appropriate Positions
 tic
-[A,b,Phi,Guess]=PopulateA(A,b,Guess,x,y,Center,Top,Bottom,Left,Right);
+[A,b]=PopulateA(A,b,x,y,Center,Top,Bottom,Left,Right);
 PopulateA_Time=toc;
 
 %Finds Solution Using Gauss Siedel Iterative Method
 tic
 [Other_Phi,GS_Iter]=GaussSiedel(A,b,Guess,Error);
-
 Phi=Other_Phi;
 %fills real phi vector (with boundary conditions) with other phi components
 % % for i=1:length(Phi)

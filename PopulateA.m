@@ -1,4 +1,4 @@
-function [A,b,Phi,Guess] = PopulateA(A,b,Guess,x,y,Center,Top,Bottom,Left,Right)
+function [A,b] = PopulateA(A,b,x,y,Center,Top,Bottom,Left,Right)
 
 %Center Placement
 for i=1:length(x)*length(y)
@@ -47,6 +47,6 @@ for i=1:length(b)
     end
 end
 
-Phi=ones(length(x)*length(y),1)/norm(ones(length(x)*length(y),1),2);
+%Phi=ones(length(x)*length(y),1)/norm(ones(length(x)*length(y),1),2);
 
 end
