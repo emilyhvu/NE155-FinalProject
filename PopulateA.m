@@ -1,4 +1,4 @@
-function [A] = PopulateA(A,x,y,Center,Top,Bottom,Left,Right)
+function [A,b,Phi,Guess] = PopulateA(A,b,Guess,x,y,Center,Top,Bottom,Left,Right)
 
 %Center Placement
 for i=1:length(x)*length(y)
@@ -25,4 +25,28 @@ for i=1:length(x)*length(y)
         A_Index=A_Index+1;
     end
 end
+
+% % Phi=zeros(length(x)*length(y),1)./0;
+% % Indices=[];
+% % for i=1:length(x)*length(y) %Deletes Rows/Columns Corresponding to Vacuum Boundary Conditions
+% %     if isnan(A(i,i))
+% %         Indices=[Indices i];
+% %         Phi(i)=0; %Boundary Condition 0
+% %     end
+% % end
+% % A(Indices,:)=[];
+% % A(:,Indices)=[];
+% % b(Indices)=[];
+% % Guess(Indices)=[];
+
+for i=1:length(b)
+    if isnan(b(i)) %Loop through and find NaN in b. 
+        b(i)=0;
+        A(i,:)=zeros(1,size(A,1)); %Replace whole row with 0
+        A(i,i)=1; %Replace A(i,i) with 1
+    end
+end
+
+Phi=ones(length(x)*length(y),1)/norm(ones(length(x)*length(y),1),2);
+
 end

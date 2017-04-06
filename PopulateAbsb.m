@@ -64,104 +64,104 @@ for i=2:length(x)-1 %TOP
     b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
 end
 
-%VACUUM SIDES (NEED TO CHANGE THIS)
-for j=(length(y)-1):-1:2 %LEFT
-    i=1;
-    %Deltas and Epsilons
-    %d1=abs(x(i)-x(i-1));
-    e1=abs(y(j)-y(j+1));
-    d2=abs(x(i+1)-x(i));
-    e2=abs(y(j-1)-y(j));
-            
-    %Volume on Right Side
-    %V1=1/4*d1*e1;
-    V2=1/4*d2*e1;
-    V3=1/4*d2*e2;
-    %V4=1/4*d1*e2;
-    Abs=A_Matrix(j,i)*V2+A_Matrix(j-1,i)*V3;
-    Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
-    %b Vector Inner Points
-    Source_Term=S_Matrix(j,i)*V2+S_Matrix(j-1,i)*V3;
-    b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
-end
-for i=2:length(x)-1 %BOTTOM
-    j=length(y);
-    %Deltas and Epsilons
-    d1=abs(x(i)-x(i-1));
-    %e1=abs(y(j)-y(j+1));
-    d2=abs(x(i+1)-x(i));
-    e2=abs(y(j-1)-y(j));
-    
-    %Volume on Top Side
-    %V1=1/4*d1*e1;
-    %V2=1/4*d2*e1;
-    V3=1/4*d2*e2;
-    V4=1/4*d1*e2;
-    Abs=A_Matrix(j-1,i)*V3+A_Matrix(j-1,i-1)*V4;
-    Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
-    %b Vector Inner Points
-    Source_Term=S_Matrix(j-1,i)*V3+S_Matrix(j-1,i-1)*V4;
-    b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
-end
+% % % %VACUUM SIDES
+% % % for j=(length(y)-1):-1:2 %LEFT
+% % %     i=1;
+% % %     %Deltas and Epsilons
+% % %     %d1=abs(x(i)-x(i-1));
+% % %     e1=abs(y(j)-y(j+1));
+% % %     d2=abs(x(i+1)-x(i));
+% % %     e2=abs(y(j-1)-y(j));
+% % %             
+% % %     %Volume on Right Side
+% % %     %V1=1/4*d1*e1;
+% % %     V2=1/4*d2*e1;
+% % %     V3=1/4*d2*e2;
+% % %     %V4=1/4*d1*e2;
+% % %     Abs=A_Matrix(j,i)*V2+A_Matrix(j-1,i)*V3;
+% % %     Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
+% % %     %b Vector Inner Points
+% % %     Source_Term=S_Matrix(j,i)*V2+S_Matrix(j-1,i)*V3;
+% % %     b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
+% % % end
+% % % for i=2:length(x)-1 %BOTTOM
+% % %     j=length(y);
+% % %     %Deltas and Epsilons
+% % %     d1=abs(x(i)-x(i-1));
+% % %     %e1=abs(y(j)-y(j+1));
+% % %     d2=abs(x(i+1)-x(i));
+% % %     e2=abs(y(j-1)-y(j));
+% % %     
+% % %     %Volume on Top Side
+% % %     %V1=1/4*d1*e1;
+% % %     %V2=1/4*d2*e1;
+% % %     V3=1/4*d2*e2;
+% % %     V4=1/4*d1*e2;
+% % %     Abs=A_Matrix(j-1,i)*V3+A_Matrix(j-1,i-1)*V4;
+% % %     Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
+% % %     %b Vector Inner Points
+% % %     Source_Term=S_Matrix(j-1,i)*V3+S_Matrix(j-1,i-1)*V4;
+% % %     b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
+% % % end
+% % % 
+% % % %CORNERS
+% % % i=1; %BOTTOM LEFT
+% % % j=length(y);
+% % %     %Deltas and Epsilons
+% % %         %d1=abs(x(i)-x(i-1));
+% % %         %e1=abs(y(j)-y(j+1));
+% % %         d2=abs(x(i+1)-x(i));
+% % %         e2=abs(y(j-1)-y(j));
+% % % 
+% % %         %Top Right Volume
+% % %         %V1=1/4*d1*e1;
+% % %         %V2=1/4*d2*e1;
+% % %         V3=1/4*d2*e2;
+% % %         %V4=1/4*d1*e2;
+% % %         Abs=A_Matrix(j-1,i)*V3;
+% % %         Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
+% % %         %b Vector Inner Points
+% % %         Source_Term=S_Matrix(j-1,i)*V3;
+% % %         b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
+% % % 
+% % % i=length(x); %BOTTOM RIGHT
+% % % j=length(y);
+% % % %Deltas and Epsilons
+% % %         d1=abs(x(i)-x(i-1));
+% % %         %e1=abs(y(j)-y(j+1));
+% % %         %d2=abs(x(i+1)-x(i));
+% % %         e2=abs(y(j-1)-y(j));
+% % %     
+% % %         %Top Left Volume
+% % %         %V1=1/4*d1*e1;
+% % %         %V2=1/4*d2*e1;
+% % %         %V3=1/4*d2*e2;
+% % %         V4=1/4*d1*e2;
+% % %         Abs=A_Matrix(j-1,i-1)*V4;
+% % %         Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
+% % %         %b Vector Inner Points
+% % %         Source_Term=S_Matrix(j-1,i-1)*V4;
+% % %         b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
+% % % 
+% % % i=1; %TOP LEFT
+% % % j=1; 
+% % %         %d1=abs(x(i)-x(i-1));
+% % %         e1=abs(y(j)-y(j+1));
+% % %         d2=abs(x(i+1)-x(i));
+% % %         %e2=abs(y(j-1)-y(j));
+% % %     
+% % %         %Bottom Right Volume
+% % %         %V1=1/4*d1*e1;
+% % %         V2=1/4*d2*e1;
+% % %         %V3=1/4*d2*e2;
+% % %         %V4=1/4*d1*e2;
+% % %         Abs=A_Matrix(j,i)*V2;
+% % %         Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
+% % %         %b Vector Inner Points
+% % %         Source_Term=S_Matrix(j,i)*V2;
+% % %         b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
 
-%CORNERS
-i=1; %BOTTOM LEFT
-j=length(y);
-    %Deltas and Epsilons
-        %d1=abs(x(i)-x(i-1));
-        %e1=abs(y(j)-y(j+1));
-        d2=abs(x(i+1)-x(i));
-        e2=abs(y(j-1)-y(j));
-
-        %Top Right Volume
-        %V1=1/4*d1*e1;
-        %V2=1/4*d2*e1;
-        V3=1/4*d2*e2;
-        %V4=1/4*d1*e2;
-        Abs=A_Matrix(j-1,i)*V3;
-        Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
-        %b Vector Inner Points
-        Source_Term=S_Matrix(j-1,i)*V3;
-        b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
-
-i=length(x); %BOTTOM RIGHT
-j=length(y);
-%Deltas and Epsilons
-        d1=abs(x(i)-x(i-1));
-        %e1=abs(y(j)-y(j+1));
-        %d2=abs(x(i+1)-x(i));
-        e2=abs(y(j-1)-y(j));
-    
-        %Top Left Volume
-        %V1=1/4*d1*e1;
-        %V2=1/4*d2*e1;
-        %V3=1/4*d2*e2;
-        V4=1/4*d1*e2;
-        Abs=A_Matrix(j-1,i-1)*V4;
-        Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
-        %b Vector Inner Points
-        Source_Term=S_Matrix(j-1,i-1)*V4;
-        b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
-
-i=1; %TOP LEFT
-j=1; 
-        %d1=abs(x(i)-x(i-1));
-        e1=abs(y(j)-y(j+1));
-        d2=abs(x(i+1)-x(i));
-        %e2=abs(y(j-1)-y(j));
-    
-        %Bottom Right Volume
-        %V1=1/4*d1*e1;
-        V2=1/4*d2*e1;
-        %V3=1/4*d2*e2;
-        %V4=1/4*d1*e2;
-        Abs=A_Matrix(j,i)*V2;
-        Abs_Terms(length(x)*length(y)-j*length(x)+i)=Abs; %Puts Abs in Correct Position
-        %b Vector Inner Points
-        Source_Term=S_Matrix(j,i)*V2;
-        b(length(x)*length(y)-j*length(x)+i)=Source_Term; %Puts Source Term in Correct Position
-
-i=length(x); %TOP RIGHT
+i=length(x); %TOP RIGHT %THIS IS THE ONLY ONE THAT MATTERS???
 j=1;
     %Deltas and Epsilons
         d1=abs(x(i)-x(i-1));

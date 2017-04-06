@@ -1,9 +1,23 @@
-function [Dimension_Error,Dimension_Success,Sign_Error,Sign_Success] = Check(x,y,D_Matrix,A_Matrix,S_Matrix)
+function [Order_Error,Order_Success,Dimension_Error,Dimension_Success,Sign_Error,Sign_Success] = Check(x,y,D_Matrix,A_Matrix,S_Matrix)
 
+Order_Error=[];
+Order_Success=[];
 Dimension_Error=[];
 Dimension_Success=[];
 Sign_Error=[];
 Sign_Success=[];
+
+%NUMERICAL ORDER CHECK
+if issorted(x)==0
+    Order_Error=[Order_Error; sprintf('Error: The entries of x must be in ascending order.')];
+else
+    Order_Success=[Order_Success; sprintf('Success: The entries of x are in ascending order.')];
+end
+if issorted(y)==0
+    Order_Error=[Order_Error; sprintf('Error: The entries of y must be in ascending order.')];
+else
+    Order_Success=[Order_Success; sprintf('Success: The entries of y are in ascending order.')];
+end
 
 %DIMENSION CHECK
 if ~isequal([length(y)-1 length(x)-1],size(D_Matrix))
@@ -58,6 +72,10 @@ if flag==0
 end
 
 %IF NO ERRORS
+if isequal(Order_Error,[])
+    Order_Error=sprintf('Congratulations! No Numerical Order Errors Found In x And y');
+    Order_Success=sprintf('Congratulations! Numerical order and x and y are correct!');
+end
 if isequal(Sign_Error,[])
     Sign_Error=sprintf('Congratulations! No Sign Errors Found In Input Files');
     Sign_Success=sprintf('Congratulations! All array entries are non-negative!');
@@ -66,5 +84,4 @@ if isequal(Dimension_Error,[])
     Dimension_Error=sprintf('Congratulations! No Dimensional Errors Found In Input Files');
     Dimension_Success=sprintf('Congratulations! Array dimensions are correct!');
 end
-
 end
