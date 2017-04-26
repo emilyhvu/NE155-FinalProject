@@ -1,5 +1,5 @@
 # NE155-FinalProject
-2d Diffusion Equation Solver
+2D Neutron Diffusion Equation Solver
 
 Status of Code: Version 1.0-Operational
 
