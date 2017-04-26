@@ -12,23 +12,33 @@ Ensure that the files Diffusion2D.m, Check.m, InputEcho.m, PopulateAbsb.m, AComp
     Gives the positions of material edges in the x direction of a mesh. 
     Dimensions: n x 1
     Entries: May be negative
+    
   -y vector (y): 
+  
     Gives the positions of material edges in the y direction of a mesh. 
     Dimensions: m x 1
     Entries: May be negative
+    
   -diffusion matrix (D_Matrix): 
+  
     Provides the material's diffusion coefficient of each cell defined by mesh grid
     Dimensions: (m-1)x(n-1)
     Entries: Non-negative
+    
   -absorption cross section area matrix (A_Matrix):
+  
     Provides the material's absorption cross section area of each cell defined by mesh grid
     Dimensions: (m-1)x(n-1)
     Entries: Non-negative
+    
   -source matrix (S_Matrix):
+  
     Provides the source of each cell defined by mesh grid
     Dimensions: (m-1)x(n-1)
     Entries: Non-negative
+    
   -error value (Error): 
+  
     Minimum absolute error allowed when solving the 2D diffusion equation using Gauss Seidel Iterative Method
     Dimensions: 1 x 1
     Entry: Non-negative
