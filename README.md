@@ -4,9 +4,11 @@
 Status of Code: Version 1.0-Operational
 
 How to execute the code: 
+
 Ensure that the files Diffusion2D.m, Check.m, InputEcho.m, PopulateAbsb.m, AComponents.m, PopulateA.m, and GaussSiedel.m are all in the same directory, and provide x vector, y vector, diffusion matrix, absorption cross section matrix, source matrix, and allowed error value. Input files Incorrect.mat, Uniform.mat, NonUniform.mat, UniformFine.mat, and NonUniformFine.mat are provided. 
 
   -x vector (x):
+  
     Gives the positions of material edges in the x direction of a mesh. 
     Dimensions: n x 1
     Entries: May be negative
